@@ -1,6 +1,6 @@
 # Ex.No: 11  Planning –  Block World Problem 
-### DATE:                                                                            
-### REGISTER NUMBER : 
+### DATE: 29/04/2025                                                                            
+### REGISTER NUMBER : 212222060199
 ### AIM: 
 To find the sequence of plan for Block word problem using PDDL  
 ###  Algorithm:
@@ -16,18 +16,54 @@ Step 9 : Define a problem for block world problem.<br>
 Step 10 : Obtain the plan for given problem.<br> 
      
 ### Program:
+```
+(define (domain blocksworld)
+(:requirements :strips :equality)
+(:predicates (clear ?x)
+             (on-table ?x)
+             (arm-empty)
+             (holding ?x)
+             (on ?x ?y))
+(:action pickup
+  :parameters (?ob)
+  :precondition (and (clear ?ob) (on-table ?ob) (arm-empty))
+  :effect (and (holding ?ob) (not (clear ?ob)) (not (on-table ?ob)) 
+               (not (arm-empty))))
+(:action putdown
+  :parameters  (?ob)
+  :precondition (and (holding ?ob))
+  :effect (and (clear ?ob) (arm-empty) (on-table ?ob) 
+               (not (holding ?ob))))
+(:action stack
+  :parameters  (?ob ?underob)
+  :precondition (and  (clear ?underob) (holding ?ob))
+  :effect (and (arm-empty) (clear ?ob) (on ?ob ?underob)
+               (not (clear ?underob)) (not (holding ?ob))))
+(:action unstack
+  :parameters (?ob ?underob)
+  :precondition (and (on ?ob ?underob) (clear ?ob) (arm-empty))
+  :effect (and (holding ?ob) (clear ?underob)
+               (not (on ?ob ?underob)) (not (clear ?ob)) (not (arm-empty)))))
+```
 
 
 
 
 
 
-
-
-
-### Input 
-
+### Input:
+```
+(define (problem pb1)
+   (:domain blocksworld)
+   (:objects a b)
+   (:init (on-table a) (on-table b)  (clear a)  (clear b) (arm-empty))
+   (:goal (and (on a b))))
+```
 ### Output/Plan:
+![Screenshot 2025-05-11 134702](https://github.com/user-attachments/assets/20742e4b-3817-409f-96bd-fe313ebc6f02)
+![Screenshot 2025-05-11 135355](https://github.com/user-attachments/assets/c55f7e0b-322b-4019-afa1-fe6c7ecb8036)
+
+
 
 
 
