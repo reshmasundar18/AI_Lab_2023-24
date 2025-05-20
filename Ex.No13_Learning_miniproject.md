@@ -1,4 +1,4 @@
-### Ex.No: 10 Learning – Use Supervised Learning
+# Ex.No: 10 Learning – Use Supervised Learning
 ## DATE: 6/05/2025
 ## REGISTER NUMBER : 212222060199
 ## AIM:
