@@ -1,10 +1,10 @@
-Ex.No: 10 Learning – Use Supervised Learning
-DATE: 13/05/2025
-REGISTER NUMBER : 212222040130
-AIM:
+### Ex.No: 10 Learning – Use Supervised Learning
+## DATE: 6/05/2025
+## REGISTER NUMBER : 212222060199
+## AIM:
 To write a program to train a classifier for phishing website detection using supervised learning.
 
-Algorithm:
+## Algorithm:
 1.Import Libraries: Load required libraries like pandas, sklearn, and gradio.
 
 2.Load Dataset: Load the phishing dataset from a CSV file containing features like HTTPS, IP address, suspicious words, etc.
@@ -21,7 +21,7 @@ Algorithm:
 
 8.Create Frontend with Gradio: Build an interactive web UI using gradio.Blocks for user-friendly input and output.
 
-Program:
+## Program:
 import gradio as gr
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
